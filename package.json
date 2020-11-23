@@ -1,0 +1,56 @@
+{
+  "private": true,
+  "license": "LGPL-2.1-only",
+  "scripts": {
+    "postinstall": "test -n \"$NOYARNPOSTINSTALL\" || npx husky install",
+    "js:lint": "npx standard",
+    "dev:web": "DEBUG=\"monk:*\" node ./servers/web.js",
+    "dev:mail": "node ./servers/mail.js",
+    "web:build": "npx next build",
+    "dev": "node ./boot.js",
+    "boot": "NODE_ENV=production node ./boot.js"
+  },
+  "standard": {
+    "ignore": [
+      "node_modules/**",
+      ".husky/**",
+      ".next/**"
+    ]
+  },
+  "dependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "autoprefixer": "^10.0.2",
+    "chalk": "^4.1.0",
+    "classnames": "^2.2.6",
+    "clsx": "^1.1.1",
+    "dayjs": "^1.9.6",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "framer-motion": "^2.9.4",
+    "heroicons": "^0.4.2",
+    "lodash": "^4.17.20",
+    "mailparser": "^3.0.0",
+    "mongodb": "^3.6.3",
+    "monk": "^7.3.2",
+    "next": "^10.0.2",
+    "next-auth": "^3.1.0",
+    "pkg-dir": "^5.0.0",
+    "postcss": "^8.1.8",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^6.11.5",
+    "smtp-server": "^3.8.0",
+    "string-hash": "^1.1.3",
+    "swr": "^0.3.9",
+    "tailwindcss": "^2.0.1",
+    "tinycolor2": "^1.4.2"
+  },
+  "devDependencies": {
+    "husky": "^5.0.1",
+    "standard": "^16.0.3"
+  },
+  "resolutions": {
+    "typeorm": "0.2.28"
+  }
+}

@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  blackhole:
+    build: .
+    ports:
+      - "25:25"
+      - "80:80"
+    env_file:
+      - ./.env
+    volumes:
+      - "mail:/var/blackhole/mail"
+
+volumes:
+  mail:
