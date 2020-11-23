@@ -19,6 +19,8 @@ COPY package.json boot.js ./
 COPY hooks/mail/ ./hooks/mail
 COPY utilities ./utilities
 COPY servers ./servers
+COPY constants ./constants
+COPY .env .
 
 EXPOSE 80
 EXPOSE 25
