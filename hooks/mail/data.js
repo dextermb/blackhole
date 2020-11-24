@@ -5,6 +5,7 @@ const util = require('util')
 
 const constant = require('../../constants/mail')
 const json = require('../../utilities/mail/to-json')
+const log = require('../../utilities/log')
 
 const handler = (stream, _, callback) => {
   const chunks = []
@@ -19,6 +20,8 @@ const handler = (stream, _, callback) => {
     const from = parsed.headers.get('from').value[0].address
     const path = `${constant.STORAGE_PATH}/mail/${from}/${+new Date()}`
 
+    log.event(`Email recieved from ${from}`)
+
     const write = util.promisify(fs.writeFile)
 
     // Make directory
@@ -29,6 +32,8 @@ const handler = (stream, _, callback) => {
 
     // Write json file
     await write(`${path}/json`, json(parsed))
+
+    log.event(`Email written to ${path}`)
 
     callback()
   })
