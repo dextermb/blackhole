@@ -3,6 +3,9 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
+import constant from '~/constants/mail'
+import ucfirst from '~/utilities/ucfirst'
+
 import Button from '~/components/button'
 import Input from '~/components/input'
 import Textarea from '~/components/input/textarea'
@@ -10,6 +13,7 @@ import Navbar from '~/components/navbar'
 import PageHeader from '~/components/page/header'
 import Section from '~/components/section'
 import Wrapper from '~/components/wrapper'
+import Dropdown from '~/components/input/dropdown'
 
 const Page = () => {
   const { register, handleSubmit, watch, setValue } = useForm()
@@ -51,14 +55,22 @@ const Page = () => {
           className='grid grid-cols-1 md:grid-cols-2 gap-4'
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className='col-span-full'>
-            <Input
-              ref={register({ required: true })}
-              label='Name'
-              name='name'
-              required
-            />
-          </div>
+          <Input
+            ref={register({ required: true })}
+            label='Name'
+            name='name'
+            required
+          />
+          <Dropdown
+            ref={register({ required: true })}
+            label='Type'
+            name='type'
+            options={Object.values(constant.FILTER).map(v => ({
+              value: v,
+              label: ucfirst(v)
+            }))}
+            required
+          />
           <Input
             ref={register({ required: true })}
             label='Regular expression'

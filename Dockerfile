@@ -18,6 +18,7 @@ COPY --from=BUILD_IMAGE /usr/src/app/.next ./.next
 COPY package.json boot.js ./
 COPY hooks/mail/ ./hooks/mail
 COPY utilities ./utilities
+COPY services ./services
 COPY servers ./servers
 COPY constants ./constants
 COPY .env .

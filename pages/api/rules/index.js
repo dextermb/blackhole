@@ -7,11 +7,12 @@ const handler = async (req, res, user) => {
 
   // Add rule
   if (method === 'post') {
-    const { name, regexp } = JSON.parse(req.body)
+    const { name, regexp, type } = JSON.parse(req.body)
 
     await rules.insert({
       name,
       regexp,
+      type,
       ignore: true,
       created_by: user.email,
       created_at: +new Date(),

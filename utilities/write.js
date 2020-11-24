@@ -6,7 +6,7 @@ const d = require('make-dir')
 const w = util.promisify(fs.writeFile)
 const a = util.promisify(fs.appendFile)
 
-const writeToFile = async (path, content, append = false) => {
+const write = async (path, content, append = false) => {
   // Make directory
   await d(dirname(path))
 
@@ -19,4 +19,4 @@ const writeToFile = async (path, content, append = false) => {
   }
 }
 
-module.exports = writeToFile
+module.exports = write

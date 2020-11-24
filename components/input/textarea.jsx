@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'clsx'
+
 import InputLabel from '~/components/input/label'
 
 const Textarea = React.forwardRef(({ label, size, required, disabled, type, placeholder, name, value, onChange, onBlur, ...rest }, ref) => (

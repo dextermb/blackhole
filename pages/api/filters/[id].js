@@ -8,7 +8,7 @@ const handler = async (req, res) => {
 
   // Update filter
   if (method === 'patch') {
-    const { name, regexp, replacement } = JSON.parse(req.body)
+    const { name, regexp, replacement, type } = JSON.parse(req.body)
 
     await filters.update(
       { _id: id },
@@ -17,6 +17,7 @@ const handler = async (req, res) => {
           name,
           regexp,
           replacement,
+          type,
           modified_at: +new Date()
         }
       }

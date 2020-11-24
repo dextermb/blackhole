@@ -2,7 +2,10 @@ function replacer (key, value) {
   const obj = this[key]
 
   if (obj instanceof Map) {
-    return Array.from(obj.entries())
+    return {
+      dataType: 'map',
+      value: Array.from(obj.entries())
+    }
   }
 
   return value

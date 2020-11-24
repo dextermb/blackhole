@@ -8,7 +8,7 @@ const handler = async (req, res) => {
 
   // Update rule
   if (method === 'patch') {
-    const { name, regexp } = JSON.parse(req.body)
+    const { name, regexp, type } = JSON.parse(req.body)
 
     await rules.update(
       { _id: id },
@@ -16,6 +16,7 @@ const handler = async (req, res) => {
         $set: {
           name,
           regexp,
+          type,
           modified_at: +new Date()
         }
       }

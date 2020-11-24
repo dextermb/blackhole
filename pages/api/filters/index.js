@@ -7,12 +7,13 @@ const handler = async (req, res, user) => {
 
   // Add filter
   if (method === 'post') {
-    const { name, regexp, replacement } = JSON.parse(req.body)
+    const { name, regexp, replacement, type } = JSON.parse(req.body)
 
     await filters.insert({
       name,
       regexp,
       replacement,
+      type,
       created_by: user.email,
       created_at: +new Date(),
       modified_at: +new Date()

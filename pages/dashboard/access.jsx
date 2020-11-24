@@ -111,7 +111,7 @@ const Page = () => {
             {!items && (
               <tbody>
                 <tr>
-                  <td colspan={4}>
+                  <td colSpan={4}>
                     <div className='flex justify-center items-center px-4 py-12'>
                       Loading...
                     </div>

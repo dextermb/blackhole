@@ -5,7 +5,11 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    extend: {}
+    extend: {
+      inset: {
+        '1/2': '50%'
+      }
+    }
   },
   variants: {
     extend: {
